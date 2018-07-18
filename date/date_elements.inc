@@ -43,7 +43,7 @@ function _date_field_validate($op, &$node, $field, &$items, $teaser, $page) {
 function _date_field_update($op, &$node, $field, &$items, $teaser, $page) {
   $field_name = $field['field_name'];
   if (empty($items)) {
-    //$node->$field_name = array(); // Not sure about this, CCK should handle it.
+    //$node->{$field_name} = array(); // Not sure about this, CCK should handle it.
     return;
   }
 
@@ -59,7 +59,7 @@ function _date_field_update($op, &$node, $field, &$items, $teaser, $page) {
       }
     }
   }
-  $node->$field['field_name'] = $items;
+  $node->{$field['field_name']} = $items;
 }
 
 /**

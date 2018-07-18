@@ -493,14 +493,14 @@ function date_field($op, &$node, $field, &$items, $teaser, $page) {
       require_once('./'. drupal_get_path('module', 'date') .'/date_elements.inc');
       $items = $additions[$field['field_name']];
       if ($additions[$field['field_name']]) {
-        $node->$field['field_name'] = $additions;
+        $node->{$field['field_name']} = $additions;
       }
       return _date_field_update($op, $node, $field, $items, $teaser, $page);
       break;
     case 'sanitize':
       //foreach ($items as $delta => $item) {
         //$dates = date_formatter_process($field, $item, $node, $formatter);
-        //$node->$field['field_name'][$delta]['dates'] = $dates;
+        //$node->{$field['field_name'][$delta]['dates']} = $dates;
       //}
   }
 }
@@ -631,7 +631,7 @@ function date_prepare_node($node, $field, $type_name, $context, $options) {
       $end = date_format($range[1], $format);
       // Empty out values we don't want to see.
       $count = 0;
-      foreach ($node->$field_name as $delta => $value) {
+      foreach ($node->{$field_name} as $delta => $value) {
         if (!empty($node->date_repeat_show_all)) {
           break;
         }
