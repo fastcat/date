@@ -155,7 +155,7 @@ function date_tools_copy_convert_events( $source_type, $target_type, $date_field
       $target_node->type = $target_type;
       foreach ($event_node as $key => $val) {
         if ($key != 'nid' && $key != 'type') {
-          $target_node->$key = $val;
+          $target_node->{$key} = $val;
         }
       }
     }
@@ -164,7 +164,7 @@ function date_tools_copy_convert_events( $source_type, $target_type, $date_field
     }
 
     if ($description_field != 'body') {
-      $target_node->$description_field = array(0 => array('value' => $event_node->body));
+      $target_node->{$description_field} = array(0 => array('value' => $event_node->body));
       unset($target_node->body);
     }
 
@@ -225,13 +225,13 @@ function date_tools_copy_convert_events( $source_type, $target_type, $date_field
       $data[0]['value2'] = date_format($end, date_type_format($field['type']));
     }
 
-    $target_node->$date_field = $data;
+    $target_node->{$date_field} = $data;
     $event_fields = array(
       'event_start', 'event_end', 'timezone', 'start_offset',
       'start_format', 'start_time_format', 'end_offset',
       'end_format', 'end_time_format', 'event_node_title');
     foreach ($event_fields as $e) {
-      unset($target_node->$e);
+      unset($target_node->{$e});
     }
 
     node_save($target_node);
@@ -253,7 +253,7 @@ function date_tools_copy_convert_events( $source_type, $target_type, $date_field
         WATCHDOG_NOTICE,
         l(t('view'), 'node/'. $target_node->nid));
     }
-    $new_field = $target_node->$date_field;
+    $new_field = $target_node->{$date_field};
     $rows[] = array(
       l($target_node->title,
       'node/'. $target_node->nid),

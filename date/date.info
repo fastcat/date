@@ -6,7 +6,7 @@ dependencies[] = date_timezone
 package = Date/Time
 core = 6.x
 ; Information added by Drupal.org packaging script on 2014-03-31
-version = "6.x-2.10-php7-1"
+version = "6.x-2.10-php7-2"
 core = "6.x"
 project = "date"
 datestamp = "1537735254"

@@ -141,7 +141,7 @@ class date_handler_field_multiple extends content_handler_field_multiple {
       $node->nid = $values->{$this->aliases['nid']};
       $node->vid = $values->{$this->aliases['vid']};
       $items = $this->field_values[$vid];
-      $node->$field_name = $items;
+      $node->{$field_name} = $items;
 
       // Some formatters need to behave differently depending on the build_mode
       // (for instance: preview), so we provide one.

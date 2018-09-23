@@ -2390,7 +2390,7 @@ function date_embed_view($name, $display_id = 'default', $settings = array(), $a
   }
   if (!empty($settings)) {
     foreach ($settings as $key => $setting) {
-      $view->$key = $setting;
+      $view->{$key} = $setting;
     }
   }
   if (!isset($view->date_info->block_identifier)) {

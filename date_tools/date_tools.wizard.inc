@@ -160,7 +160,7 @@ function date_tools_wizard_build($form_values) {
     $type = $types[$type_name];
     if (!empty($type_settings)) {
       foreach ($type_settings as $key => $setting) {
-        $type->$key = $setting;
+        $type->{$key} = $setting;
       }
       node_type_save($type);
     }
