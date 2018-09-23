@@ -3,3 +3,10 @@ description = Needed when using Date API. Overrides site and user timezone handl
 package = Date/Time
 dependencies[] = date_api
 core = 6.x
+
+; Information added by Drupal.org packaging script on 2014-03-31
+version = "6.x-2.10-php7-1"
+core = "6.x"
+project = "date"
+datestamp = "1537735254"
+
